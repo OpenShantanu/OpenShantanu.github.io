@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shantanu Gadade | Academic & Cyber Portfolio</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            cyber: {
+              black: '#07090e',
+              dark: '#0c1017',
+              panel: '#131924',
+              border: '#1f293d',
+              cyan: '#00f0ff',
+              neon: '#39ff14',
+              purple: '#b026ff',
+              amber: '#ffb703'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #07090e;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+    .neon-border-cyan {
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.2), inset 0 0 15px rgba(0, 240, 255, 0.05);
+      border-color: rgba(0, 240, 255, 0.4);
+    }
+    .neon-glow-text {
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+    }
+    .grid-bg {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .glass-card {
+      background: rgba(19, 25, 36, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      border-color: rgba(0, 240, 255, 0.4);
+      box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.12);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0c1017;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1f293d;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #00f0ff;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased relative selection:bg-cyber-cyan selection:text-black">
+
+  <!-- Interactive 3D Canvas Background -->
+  <canvas id="bg-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+  <!-- Ambient glow backdrop -->
+  <div class="fixed top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-cyber-cyan/10 blur-[130px] pointer-events-none z-0"></div>
+  <div class="fixed bottom-[-10%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-cyber-purple/10 blur-[140px] pointer-events-none z-0"></div>
+
+  <!-- Main Container -->
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col min-h-screen">
+
+    <!-- Top Status Line -->
+    <div class="w-full flex justify-between items-center py-2 px-4 glass-card rounded-lg border border-cyber-border/70 mb-6 font-mono text-xs text-slate-400">
+      <div class="flex items-center space-x-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-cyber-neon animate-ping"></span>
+        <span class="inline-block w-2 h-2 rounded-full bg-cyber-neon absolute"></span>
+        <span class="text-slate-200">System Ready // Somaiya School of Basic &amp; Applied Sciences</span>
+      </div>
+      <div class="text-slate-400 font-mono hidden sm:block">
+        LOC: MUMBAI, MH [IN]
+      </div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="glass-card rounded-2xl p-6 sm:p-8 mb-8 border border-cyber-border relative overflow-hidden">
+      <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-cyber-cyan/5 rounded-full blur-2xl pointer-events-none"></div>
+
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div>
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs mb-3">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+            <span>ACADEMICIAN &amp; CYBER SECURITY SPECIALIST</span>
+          </div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-2">
+            Shantanu <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-cyan via-teal-300 to-cyber-purple">Gadade</span>
+          </h1>
+
+          <!-- Dynamic Typing Line -->
+          <div class="flex items-center space-x-2 font-mono text-sm sm:text-base text-slate-300 min-h-[1.75rem]">
+            <span class="text-cyber-cyan">&gt;</span>
+            <span id="typewriter-text" class="text-cyber-neon font-medium"></span>
+            <span class="inline-block w-2 h-4 bg-cyber-cyan animate-pulse"></span>
+          </div>
+        </div>
+
+        <!-- Direct Actions -->
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="mailto:shantanugadade12@gmail.com" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyber-cyan to-teal-400 text-black font-semibold text-xs font-mono uppercase tracking-wider flex items-center space-x-2 shadow-lg shadow-cyber-cyan/20 hover:scale-105 transition-transform duration-200">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            <span>Email Me</span>
+          </a>
+          <a href="https://github.com/OpenShantanu" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-cyber-dark hover:bg-cyber-panel border border-cyber-border text-slate-200 text-xs font-mono flex items-center space-x-2 transition-all">
+            <i data-lucide="github" class="w-4 h-4 text-cyber-cyan"></i>
+            <span>GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/shantanugadade" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-cyber-dark hover:bg-cyber-panel border border-cyber-border text-slate-200 text-xs font-mono flex items-center space-x-2 transition-all">
+            <i data-lucide="linkedin" class="w-4 h-4 text-cyber-cyan"></i>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Strip -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-cyber-border/60 font-mono">
+        <div class="p-3 rounded-lg bg-cyber-dark/60 border border-cyber-border/40">
+          <div class="text-xs text-slate-400">Gold Medalist</div>
+          <div class="text-sm sm:text-base font-bold text-white">M.Sc. Cyber Forensics</div>
+        </div>
+        <div class="p-3 rounded-lg bg-cyber-dark/60 border border-cyber-border/40">
+          <div class="text-xs text-slate-400">Exam Moderation</div>
+          <div class="text-sm sm:text-base font-bold text-cyber-cyan">300+ Students</div>
+        </div>
+        <div class="p-3 rounded-lg bg-cyber-dark/60 border border-cyber-border/40">
+          <div class="text-xs text-slate-400">Certification</div>
+          <div class="text-sm sm:text-base font-bold text-cyber-neon">CEH &amp; UGC-NET</div>
+        </div>
+        <div class="p-3 rounded-lg bg-cyber-dark/60 border border-cyber-border/40">
+          <div class="text-xs text-slate-400">Student Mentorship</div>
+          <div class="text-sm sm:text-base font-bold text-cyber-purple">90+ Capstones</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="flex items-center space-x-2 overflow-x-auto pb-3 mb-6 custom-scrollbar font-mono text-xs">
+      <button onclick="switchTab('overview')" id="tab-btn-overview" class="tab-btn px-4 py-2.5 rounded-xl border border-cyber-cyan bg-cyber-cyan/10 text-cyber-cyan font-semibold flex items-center space-x-2 whitespace-nowrap transition-all">
+        <i data-lucide="terminal" class="w-4 h-4"></i>
+        <span>// Terminal Profile</span>
+      </button>
+      <button onclick="switchTab('experience')" id="tab-btn-experience" class="tab-btn px-4 py-2.5 rounded-xl border border-cyber-border bg-cyber-panel/50 text-slate-400 hover:text-white flex items-center space-x-2 whitespace-nowrap transition-all">
+        <i data-lucide="briefcase" class="w-4 h-4"></i>
+        <span>Experience &amp; Roles</span>
+      </button>
+      <button onclick="switchTab('skills')" id="tab-btn-skills" class="tab-btn px-4 py-2.5 rounded-xl border border-cyber-border bg-cyber-panel/50 text-slate-400 hover:text-white flex items-center space-x-2 whitespace-nowrap transition-all">
+        <i data-lucide="radar" class="w-4 h-4"></i>
+        <span>Stat Pentagon &amp; Matrix</span>
+      </button>
+      <button onclick="switchTab('research')" id="tab-btn-research" class="tab-btn px-4 py-2.5 rounded-xl border border-cyber-border bg-cyber-panel/50 text-slate-400 hover:text-white flex items-center space-x-2 whitespace-nowrap transition-all">
+        <i data-lucide="file-code" class="w-4 h-4"></i>
+        <span>Research &amp; Open Source</span>
+      </button>
+      <button onclick="switchTab('volunteering')" id="tab-btn-volunteering" class="tab-btn px-4 py-2.5 rounded-xl border border-cyber-border bg-cyber-panel/50 text-slate-400 hover:text-white flex items-center space-x-2 whitespace-nowrap transition-all">
+        <i data-lucide="heart-handshake" class="w-4 h-4"></i>
+        <span>Volunteering &amp; BRM</span>
+      </button>
+      <button onclick="switchTab('credentials')" id="tab-btn-credentials" class="tab-btn px-4 py-2.5 rounded-xl border border-cyber-border bg-cyber-panel/50 text-slate-400 hover:text-white flex items-center space-x-2 whitespace-nowrap transition-all">
+        <i data-lucide="award" class="w-4 h-4"></i>
+        <span>Credentials &amp; Ref</span>
+      </button>
+      <button onclick="switchTab('testimonials')" id="tab-btn-testimonials" class="tab-btn px-4 py-2.5 rounded-xl border border-cyber-border bg-cyber-panel/50 text-slate-400 hover:text-white flex items-center space-x-2 whitespace-nowrap transition-all">
+        <i data-lucide="message-square-quote" class="w-4 h-4"></i>
+        <span>Student Feedback</span>
+      </button>
+    </nav>
+
+    <!-- CONTENT SECTIONS -->
+    <main class="flex-grow space-y-6">
+
+      <!-- 1. OVERVIEW / TERMINAL -->
+      <section id="content-overview" class="tab-content block space-y-6">
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-cyber-border">
+          <div class="flex items-center justify-between mb-4 pb-3 border-b border-cyber-border/70 font-mono text-xs text-slate-400">
+            <span class="flex items-center gap-2"><i data-lucide="cpu" class="w-4 h-4 text-cyber-cyan"></i> executive_summary.sh</span>
+            <span class="text-cyber-neon">EXEC_STATUS: SUCCESS</span>
+          </div>
+
+          <p class="text-slate-300 leading-relaxed text-sm sm:text-base mb-6">
+            Passionate academician and technologist holding a <strong class="text-cyber-cyan">Gold Medal in Cyber Forensics &amp; IT Security</strong> from the Government Institute of Forensic Science, UGC NET qualification, and EC-Council Certified Ethical Hacker credentials. Seasoned in shaping undergraduate and postgraduate curricula under the autonomous college framework and Outcome-Based Education (OBE). Experienced in mentoring students for Smart India Hackathons, conducting high-stakes external examinations, and translating real-world security architecture into experiential classroom learning. Currently affiliated with <strong class="text-white">Somaiya School of Basic and Applied Sciences</strong>.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+            <div class="p-4 rounded-xl bg-cyber-dark/80 border border-cyber-border">
+              <div class="text-cyber-cyan font-bold mb-1 flex items-center gap-1.5">
+                <i data-lucide="shield" class="w-3.5 h-3.5"></i> FORENSIC &amp; SECURITY
+              </div>
+              <p class="text-slate-400">Digital incident response, mobile and network forensics, zero-trust fintech architectures, and secure coding pipelines.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-cyber-dark/80 border border-cyber-border">
+              <div class="text-cyber-neon font-bold mb-1 flex items-center gap-1.5">
+                <i data-lucide="binary" class="w-3.5 h-3.5"></i> APPLIED AI &amp; DATA
+              </div>
+              <p class="text-slate-400">Voice AI Guardrails, adversarial prompt injection defense, machine learning telemetry, and enterprise RPA automations.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-cyber-dark/80 border border-cyber-border">
+              <div class="text-cyber-purple font-bold mb-1 flex items-center gap-1.5">
+                <i data-lucide="book-open" class="w-3.5 h-3.5"></i> PEDAGOGY &amp; NEP
+              </div>
+              <p class="text-slate-400">Curriculum co-architect for NEP 2020 Data Science to Analytics, hackathon SPOC, and external university examiner.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. EXPERIENCE & ROLES -->
+      <section id="content-experience" class="tab-content hidden space-y-6">
+        <!-- Full-Time Role -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-cyber-border relative">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
+            <div>
+              <span class="text-xs font-mono text-cyber-cyan uppercase tracking-wider">Full-Time Academic Faculty</span>
+              <h3 class="text-xl sm:text-2xl font-bold text-white">Assistant Professor</h3>
+              <p class="text-slate-300 font-medium">R. A. Podar College of Commerce and Economics (Autonomous)</p>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-cyber-dark text-slate-300 font-mono text-xs border border-cyber-border">Aug 2023 – Apr 2026</span>
+          </div>
+
+          <ul class="space-y-3 text-slate-300 text-sm leading-relaxed mt-4">
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="chevron-right" class="w-4 h-4 text-cyber-cyan flex-shrink-0 mt-1"></i>
+              <span>Delivered core computing and emerging tech courses including Cyber Security, Blockchain Technology, AI, Python &amp; R Programming, DSA, OOP, Web Development, Computer Vision, Cloud Computing, RPA, and Digitalization in Logistics.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="chevron-right" class="w-4 h-4 text-cyber-cyan flex-shrink-0 mt-1"></i>
+              <span><strong>Curriculum Co-Architect:</strong> Co-led the design and formulation of the NEP-aligned curriculum for the <strong>B.Sc. Data Science to Analytics</strong> undergraduate and postgraduate programmes, integrating hands-on labs and real-world case assessments.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="chevron-right" class="w-4 h-4 text-cyber-cyan flex-shrink-0 mt-1"></i>
+              <span>Served as the single point of contact (SPOC) for the <strong>Smart India Hackathon (SIH)</strong> for 2 consecutive years, mentoring teams through ideation to prototype stages.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="chevron-right" class="w-4 h-4 text-cyber-cyan flex-shrink-0 mt-1"></i>
+              <span>Mentored two-level hackathon tracks for Moneta® and guided the winning research team (First Prize) in the Data Science track at the National-level NextEdge Conclave.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="chevron-right" class="w-4 h-4 text-cyber-cyan flex-shrink-0 mt-1"></i>
+              <span>Active steering member for departmental quality assurance, NAAC accreditation criteria files, student extracurricular activities, technical conclaves, and 2 International Research Conferences.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="chevron-right" class="w-4 h-4 text-cyber-cyan flex-shrink-0 mt-1"></i>
+              <span>Directly guided and mentored <strong>90+ students</strong> through end-to-end industry-focused capstones and final-year assessments.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- External Examiner Role -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-cyber-border">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
+            <div>
+              <span class="text-xs font-mono text-cyber-neon uppercase tracking-wider">Evaluation &amp; Quality Governance</span>
+              <h3 class="text-lg sm:text-xl font-bold text-white">External Examiner &amp; Moderator</h3>
+              <p class="text-slate-300">University of Mumbai Practical Examinations</p>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-cyber-dark text-slate-300 font-mono text-xs border border-cyber-border">2024 – 2025</span>
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Appointed as external examiner and moderator for practical examinations across leading affiliated colleges, rigorously assessing over <strong>300+ students</strong> across advanced technological tracks:
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4 text-xs font-mono">
+            <div class="p-3 bg-cyber-dark rounded-lg border border-cyber-border">
+              <div class="text-cyber-cyan font-bold mb-1">S.M. Shetty College</div>
+              <span class="text-slate-400">AI, Soft Computing &amp; IoT</span>
+            </div>
+            <div class="p-3 bg-cyber-dark rounded-lg border border-cyber-border">
+              <div class="text-cyber-neon font-bold mb-1">Usha Pravin Gandhi (UPG)</div>
+              <span class="text-slate-400">Data Engineering &amp; GIS</span>
+            </div>
+            <div class="p-3 bg-cyber-dark rounded-lg border border-cyber-border">
+              <div class="text-cyber-purple font-bold mb-1">VSIT (Vidyalankar)</div>
+              <span class="text-slate-400">Prompt Engineering &amp; AI Practical Labs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visiting Faculty Network -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-cyber-border">
+          <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+            <i data-lucide="layers" class="w-5 h-5 text-cyber-cyan"></i> Visiting Faculty Engagements (Jul 2022 – Present)
+          </h3>
+          <p class="text-slate-400 text-xs font-mono mb-4">Delivering specialized syllabus modules and hands-on lab curricula across higher educational institutions in Mumbai:</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+            <div class="p-3.5 bg-cyber-dark/80 rounded-xl border border-cyber-border">
+              <div class="font-bold text-white text-sm mb-1">HSNC University</div>
+              <div class="text-cyber-cyan font-mono mb-1.5">Programming for Actuarial Science</div>
+              <p class="text-slate-400">Algorithmic problem solving, actuarial statistics, and Python financial programming.</p>
+            </div>
+            <div class="p-3.5 bg-cyber-dark/80 rounded-xl border border-cyber-border">
+              <div class="font-bold text-white text-sm mb-1">Jai Hind College</div>
+              <div class="text-cyber-cyan font-mono mb-1.5">Cyber Security &amp; Ethical Hacking</div>
+              <p class="text-slate-400">Network defense mechanics, packet sniffing, vulnerability triage, and penetration testing fundamentals.</p>
+            </div>
+            <div class="p-3.5 bg-cyber-dark/80 rounded-xl border border-cyber-border">
+              <div class="font-bold text-white text-sm mb-1">Royal College (IDOL)</div>
+              <div class="text-cyber-cyan font-mono mb-1.5">Ethical Hacking Labs</div>
+              <p class="text-slate-400">Hands-on exploit demonstrations, Kali Linux toolkits, and offensive security laboratory practicals.</p>
+            </div>
+            <div class="p-3.5 bg-cyber-dark/80 rounded-xl border border-cyber-border">
+              <div class="font-bold text-white text-sm mb-1">Somaiya Vidyavihar University</div>
+              <div class="text-cyber-neon font-mono mb-1.5">M.Sc. IT &amp; B.Sc. IT</div>
+              <p class="text-slate-400">Network Security, Cryptography, Database Management, and Big Data Forensics.</p>
+            </div>
+            <div class="p-3.5 bg-cyber-dark/80 rounded-xl border border-cyber-border">
+              <div class="font-bold text-white text-sm mb-1">Govt. Institute of Forensic Science</div>
+              <div class="text-cyber-purple font-mono mb-1.5">Cyber Forensics &amp; Hardware</div>
+              <p class="text-slate-400">Digital Forensics, Microprocessors, Digital Electronics, and Secure Coding.</p>
+            </div>
+            <div class="p-3.5 bg-cyber-dark/80 rounded-xl border border-cyber-border">
+              <div class="font-bold text-white text-sm mb-1">Forensic Science Laboratories</div>
+              <div class="text-cyber-amber font-mono mb-1.5">RFSL Pune &amp; SFSL Patna</div>
+              <p class="text-slate-400">Internship training in audio/tape authentication, speaker identification, and questioned document forensics.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. RADIAL / STAT PENTAGON & SKILLS MATRIX -->
+      <section id="content-skills" class="tab-content hidden space-y-6">
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-cyber-border">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-4 border-b border-cyber-border/80">
+            <div>
+              <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="radar" class="w-6 h-6 text-cyber-cyan"></i> Capability Radar &amp; Pentagon Mapping
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-400">Holistic multi-dimensional evaluation of technical, pedagogical, and investigative proficiencies.</p>
+            </div>
+            <a href="https://tryhackme.com/p/OpenShantanu" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl bg-[#c52227]/20 border border-[#c52227]/50 text-red-200 hover:bg-[#c52227]/40 text-xs font-mono flex items-center gap-2 transition-all">
+              <i data-lucide="terminal" class="w-4 h-4 text-red-400"></i>
+              <span>TryHackMe Profile</span>
+            </a>
+          </div>
+
+          <!-- Radar Chart Visualizer (SVG Based) -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
+            <div class="lg:col-span-6 flex justify-center">
+              <div class="relative w-72 h-72 sm:w-80 sm:h-80 flex items-center justify-center">
+                <!-- SVG Radar -->
+                <svg viewBox="0 0 400 400" class="w-full h-full transform filter drop-shadow-[0_0_15px_rgba(0,240,255,0.25)]">
+                  <!-- Radar background grids (Concentric Pentagons) -->
+                  <polygon points="200,40 352,150 294,330 106,330 48,150" fill="none" stroke="#1f293d" stroke-width="1.5" />
+                  <polygon points="200,80 314,162 270,298 130,298 86,162" fill="none" stroke="#1f293d" stroke-width="1.5" />
+                  <polygon points="200,120 276,175 247,265 153,265 124,175" fill="none" stroke="#1f293d" stroke-width="1.5" />
+                  <polygon points="200,160 238,187 223,232 177,232 162,187" fill="none" stroke="#1f293d" stroke-width="1.5" />
+
+                  <!-- Axis lines -->
+                  <line x1="200" y1="200" x2="200" y2="40" stroke="#1f293d" stroke-width="1.5" stroke-dasharray="3,3" />
+                  <line x1="200" y1="200" x2="352" y2="150" stroke="#1f293d" stroke-width="1.5" stroke-dasharray="3,3" />
+                  <line x1="200" y1="200" x2="294" y2="330" stroke="#1f293d" stroke-width="1.5" stroke-dasharray="3,3" />
+                  <line x1="200" y1="200" x2="106" y2="330" stroke="#1f293d" stroke-width="1.5" stroke-dasharray="3,3" />
+                  <line x1="200" y1="200" x2="48" y2="150" stroke="#1f293d" stroke-width="1.5" stroke-dasharray="3,3" />
+
+                  <!-- Stat Data Area Polygon (Values: Asst Prof: 95%, Cyber: 98%, Prog: 90%, AI: 92%, Res: 88%) -->
+                  <polygon points="200,48 344,153 285,317 114,320 54,152" 
+                           fill="rgba(0, 240, 255, 0.22)" 
+                           stroke="#00f0ff" 
+                           stroke-width="2.5" />
+
+                  <!-- Data Point Nodes -->
+                  <circle cx="200" cy="48" r="5" fill="#39ff14" class="animate-pulse" />
+                  <circle cx="344" cy="153" r="5" fill="#00f0ff" />
+                  <circle cx="285" cy="317" r="5" fill="#b026ff" />
+                  <circle cx="114" cy="320" r="5" fill="#ffb703" />
+                  <circle cx="54" cy="152" r="5" fill="#00f0ff" />
+
+                  <!-- Labels -->
+                  <text x="200" y="24" fill="#39ff14" font-size="11" font-family="'Fira Code', monospace" text-anchor="middle" font-weight="bold">Assistant Professor [95%]</text>
+                  <text x="365" y="155" fill="#00f0ff" font-size="11" font-family="'Fira Code', monospace" text-anchor="start" font-weight="bold">Cyber &amp; Forensic [98%]</text>
+                  <text x="305" y="350" fill="#b026ff" font-size="11" font-family="'Fira Code', monospace" text-anchor="middle" font-weight="bold">Programmer [90%]</text>
+                  <text x="95" y="350" fill="#ffb703" font-size="11" font-family="'Fira Code', monospace" text-anchor="middle" font-weight="bold">AI Builder [92%]</text>
+                  <text x="35" y="155" fill="#00f0ff" font-size="11" font-family="'Fira Code', monospace" text-anchor="end" font-weight="bold">Researcher [88%]</text>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Pentagon Overview Summary -->
+            <div class="lg:col-span-6 space-y-3 font-mono text-xs">
+              <div class="p-3 bg-cyber-dark/80 rounded-xl border border-cyber-border flex justify-between items-center">
+                <span class="text-cyber-neon font-bold">1. Assistant Professor</span>
+                <span class="text-slate-300">OBE Delivery, NEP 2020 Architecture, SIH SPOC</span>
+              </div>
+              <div class="p-3 bg-cyber-dark/80 rounded-xl border border-cyber-border flex justify-between items-center">
+                <span class="text-cyber-cyan font-bold">2. Cyber &amp; Forensics</span>
+                <span class="text-slate-300">Gold Medalist, CEH, DFIR, Penetration Testing</span>
+              </div>
+              <div class="p-3 bg-cyber-dark/80 rounded-xl border border-cyber-border flex justify-between items-center">
+                <span class="text-cyber-purple font-bold">3. Programmer</span>
+                <span class="text-slate-300">Python, C/C++, R, Solidity, Full-Stack, DSA</span>
+              </div>
+              <div class="p-3 bg-cyber-dark/80 rounded-xl border border-cyber-border flex justify-between items-center">
+                <span class="text-cyber-amber font-bold">4. AI Solution Builder</span>
+                <span class="text-slate-300">Voice AI Guardrail, Isolation Forests, RPA</span>
+              </div>
+              <div class="p-3 bg-cyber-dark/80 rounded-xl border border-cyber-border flex justify-between items-center">
+                <span class="text-slate-200 font-bold">5. Researcher</span>
+                <span class="text-slate-300">Scopus/UGC Care, FinTech 5.0 Zero Trust, PM2.5</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Showcase Sub-Tabs -->
+          <div class="border-t border-cyber-border pt-6">
+            <h3 class="text-sm font-mono text-slate-400 mb-3 uppercase tracking-wider">// Inspect Role Matrix</h3>
+            <div class="flex flex-wrap gap-2 mb-4 font-mono text-xs">
+              <button onclick="showSkillSubTab('subtab-prof')" id="btn-subtab-prof" class="skill-sub-btn px-3 py-1.5 rounded-lg border border-cyber-cyan bg-cyber-cyan/10 text-cyber-cyan">Assistant Professor</button>
+              <button onclick="showSkillSubTab('subtab-cyber')" id="btn-subtab-cyber" class="skill-sub-btn px-3 py-1.5 rounded-lg border border-cyber-border bg-cyber-dark text-slate-400">Cyber &amp; Forensic</button>
+              <button onclick="showSkillSubTab('subtab-prog')" id="btn-subtab-prog" class="skill-sub-btn px-3 py-1.5 rounded-lg border border-cyber-border bg-cyber-dark text-slate-400">Programmer</button>
+              <button onclick="showSkillSubTab('subtab-ai')" id="btn-subtab-ai" class="skill-sub-btn px-3 py-1.5 rounded-lg border border-cyber-border bg-cyber-dark text-slate-400">AI Solution Builder</button>
+              <button onclick="showSkillSubTab('subtab-res')" id="btn-subtab-res" class="skill-sub-btn px-3 py-1.5 rounded-lg border border-cyber-border bg-cyber-dark text-slate-400">Researcher</button>
+            </div>
+
+            <!-- Subtab: Asst Professor -->
+            <div id="subtab-prof" class="skill-sub-content block p-4 rounded-xl bg-cyber-dark/60 border border-cyber-border text-xs text-slate-300 space-y-2">
+              <p><strong>Academic &amp; Administrative Capabilities:</strong></p>
+              <ul class="list-disc list-inside space-y-1 text-slate-400">
+                <li>Formulated credit-based syllabi for B.Sc. Data Science to Analytics aligned with NEP 2020.</li>
+                <li>SPOC for Smart India Hackathon for 2 years; mentored teams winning national conclave tracks.</li>
+                <li>Conducted university practical moderation for 300+ students across top autonomous colleges.</li>
+                <li>NAAC criteria documentation, IQAC workflows, and organizing international conferences.</li>
+              </ul>
+            </div>
+
+            <!-- Subtab: Cyber Security -->
+            <div id="subtab-cyber" class="skill-sub-content hidden p-4 rounded-xl bg-cyber-dark/60 border border-cyber-border text-xs text-slate-300 space-y-2">
+              <p><strong>Forensic &amp; Offensive Security Arsenal:</strong></p>
+              <div class="flex flex-wrap gap-1.5 mt-2">
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">FTK Imager</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">Autopsy Forensics</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">EnCase</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">Cellebrite UFED</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">Wireshark</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">Nmap</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">Burp Suite</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">Metasploit</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">Veracrypt</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">SQLmap</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">Sysinternals</span>
+              </div>
+            </div>
+
+            <!-- Subtab: Programmer -->
+            <div id="subtab-prog" class="skill-sub-content hidden p-4 rounded-xl bg-cyber-dark/60 border border-cyber-border text-xs text-slate-300 space-y-2">
+              <p><strong>Languages &amp; Software Frameworks:</strong></p>
+              <div class="flex flex-wrap gap-1.5 mt-2">
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">Python</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">R Language</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">C &amp; C++</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">Solidity (Smart Contracts)</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">SQL / NoSQL</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">HTML5/CSS3/JavaScript</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">React.js &amp; Node.js</span>
+                <span class="px-2 py-1 rounded bg-cyber-panel border border-cyber-border">Flask &amp; Streamlit</span>
+              </div>
+            </div>
+
+            <!-- Subtab: AI Builder -->
+            <div id="subtab-ai" class="skill-sub-content hidden p-4 rounded-xl bg-cyber-dark/60 border border-cyber-border text-xs text-slate-300 space-y-2">
+              <p><strong>Machine Learning &amp; Automation Architecture:</strong></p>
+              <ul class="list-disc list-inside space-y-1 text-slate-400">
+                <li>Voice AI Guardrail with Groq and Whisper for sub-second injection screening.</li>
+                <li>Unsupervised packet anomaly detection using Isolation Forests in network streams.</li>
+                <li>RPA pipeline development using UiPath Studio for automated operational workflows.</li>
+                <li>Computer Vision architectures for static feature detection and predictive healthcare models.</li>
+              </ul>
+            </div>
+
+            <!-- Subtab: Researcher -->
+            <div id="subtab-res" class="skill-sub-content hidden p-4 rounded-xl bg-cyber-dark/60 border border-cyber-border text-xs text-slate-300 space-y-2">
+              <p><strong>Publications &amp; Research Inquiries:</strong></p>
+              <ul class="list-disc list-inside space-y-1 text-slate-400">
+                <li>Zero Trust Architecture in FinTech 5.0 (Ajanta ISSN 2277-5730).</li>
+                <li>Healthcare Diagnostic Modeling: AI-Driven Medicine Recommendations (ISBN 978-93-344-5986-9).</li>
+                <li>Forensic Accounting &amp; ESG Compliance Modeling (ISBN 978-819947762-9).</li>
+                <li>Atmospheric PM2.5 particulate level forecasting using comparative Deep Learning.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. RESEARCH & OPEN SOURCE -->
+      <section id="content-research" class="tab-content hidden space-y-6">
+        <!-- Research Profile Badges -->
+        <div class="glass-card rounded-2xl p-6 border border-cyber-border">
+          <h3 class="text-sm font-mono text-slate-400 mb-3 uppercase tracking-wider">// Academic Research Index Profiles</h3>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://orcid.org/0009-0007-3191-770X" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-cyber-dark hover:bg-cyber-panel border border-cyber-border hover:border-cyber-cyan text-xs font-mono text-slate-200 flex items-center gap-2 transition-all">
+              <i data-lucide="external-link" class="w-3.5 h-3.5 text-cyber-cyan"></i>
+              <span>ORCID Profile</span>
+            </a>
+            <a href="https://scholar.google.com/citations?hl=en&user=kHoEPgIAAAAJ" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-cyber-dark hover:bg-cyber-panel border border-cyber-border hover:border-cyber-cyan text-xs font-mono text-slate-200 flex items-center gap-2 transition-all">
+              <i data-lucide="book-marked" class="w-3.5 h-3.5 text-cyber-cyan"></i>
+              <span>Google Scholar</span>
+            </a>
+            <a href="https://www.researchgate.net/profile/Shantanu-Gadade" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-cyber-dark hover:bg-cyber-panel border border-cyber-border hover:border-cyber-cyan text-xs font-mono text-slate-200 flex items-center gap-2 transition-all">
+              <i data-lucide="network" class="w-3.5 h-3.5 text-cyber-cyan"></i>
+              <span>ResearchGate</span>
+            </a>
+            <a href="https://openshantanu.medium.com/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-cyber-dark hover:bg-cyber-panel border border-cyber-border hover:border-cyber-cyan text-xs font-mono text-slate-200 flex items-center gap-2 transition-all">
+              <i data-lucide="feather" class="w-3.5 h-3.5 text-cyber-cyan"></i>
+              <span>Medium Articles</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Open Source GitHub Projects -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-cyber-border">
+          <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <i data-lucide="code-2" class="w-5 h-5 text-cyber-cyan"></i> Engineered AI &amp; Security Tools
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Project 1 -->
+            <div class="p-4 rounded-xl bg-cyber-dark border border-cyber-border flex flex-col justify-between hover:border-cyber-cyan/50 transition-all">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-bold text-white text-sm">Voice AI Guardrail</h4>
+                  <a href="https://github.com/OpenShantanu/Voice-AI-Guardrail" target="_blank" rel="noopener noreferrer" class="text-cyber-cyan hover:underline text-xs flex items-center gap-1 font-mono">
+                    <span>Repo</span> <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+                  </a>
+                </div>
+                <p class="text-slate-400 text-xs mb-3">Real-time security framework safeguarding voice AI conversational agents from prompt injections and jailbreaks.</p>
+              </div>
+              <div class="font-mono text-[10px] text-cyber-cyan flex flex-wrap gap-1">
+                <span>Python</span> &bull; <span>Groq</span> &bull; <span>Whisper</span>
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="p-4 rounded-xl bg-cyber-dark border border-cyber-border flex flex-col justify-between hover:border-cyber-cyan/50 transition-all">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-bold text-white text-sm">AI Threat Hunter</h4>
+                  <a href="https://github.com/OpenShantanu/AI-threat-hunter" target="_blank" rel="noopener noreferrer" class="text-cyber-cyan hover:underline text-xs flex items-center gap-1 font-mono">
+                    <span>Repo</span> <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+                  </a>
+                </div>
+                <p class="text-slate-400 text-xs mb-3">Unsupervised machine learning solution parsing packet captures (PCAP) to isolate malicious network telemetry.</p>
+              </div>
+              <div class="font-mono text-[10px] text-cyber-neon flex flex-wrap gap-1">
+                <span>Python</span> &bull; <span>Isolation Forest</span> &bull; <span>PCAP</span>
+              </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="p-4 rounded-xl bg-cyber-dark border border-cyber-border flex flex-col justify-between hover:border-cyber-cyan/50 transition-all">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-bold text-white text-sm">Heuristic Malware Tool</h4>
+                  <a href="https://github.com/OpenShantanu/Heuristic-Malware-Detection-Tool" target="_blank" rel="noopener noreferrer" class="text-cyber-cyan hover:underline text-xs flex items-center gap-1 font-mono">
+                    <span>Repo</span> <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+                  </a>
+                </div>
+                <p class="text-slate-400 text-xs mb-3">Automated static inspection scanner inspecting binary strings and entropy thresholds to detect payloads.</p>
+              </div>
+              <div class="font-mono text-[10px] text-cyber-purple flex flex-wrap gap-1">
+                <span>Python</span> &bull; <span>Static Analysis</span> &bull; <span>DFIR</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Publications -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-cyber-border">
+          <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <i data-lucide="file-text" class="w-5 h-5 text-cyber-cyan"></i> Peer-Reviewed Publications &amp; Proceedings
+          </h3>
+          <div class="space-y-4 text-xs sm:text-sm">
+            <div class="p-3.5 bg-cyber-dark/80 rounded-xl border border-cyber-border">
+              <span class="font-mono text-[11px] text-cyber-cyan">Ajanta (ISSN 2277-5730) &bull; 2026</span>
+              <h5 class="text-white font-semibold mt-1">Zero Trust Architecture in Fintech 5.0: A Scoping Review</h5>
+              <p class="text-slate-400 text-xs mt-1">Presented at the International Conference on "Fintech to Finance 5.0: Building Intelligent, Sustainable Systems" at R. A. Podar College.</p>
+            </div>
+            <div class="p-3.5 bg-cyber-dark/80 rounded-xl border border-cyber-border">
+              <span class="font-mono text-[11px] text-cyber-neon">V-CMT International Proceedings (ISBN 978-93-344-5986-9) &bull; 2025</span>
+              <h5 class="text-white font-semibold mt-1">AI-Driven Medicine Recommendation System for Symptom-Based Healthcare Assistance</h5>
+              <p class="text-slate-400 text-xs mt-1">Presented at Vidyalankar School of Information Technology (VSIT) Multi-Disciplinary Conference.</p>
+            </div>
+            <div class="p-3.5 bg-cyber-dark/80 rounded-xl border border-cyber-border">
+              <span class="font-mono text-[11px] text-cyber-purple">ESG Synergies Volume (ISBN 978-819947762-9) &bull; 2025</span>
+              <h5 class="text-white font-semibold mt-1">Strengthening ESG Compliance in India through Forensic Accounting</h5>
+              <p class="text-slate-400 text-xs mt-1">Published research investigating institutional fraud detection and corporate governance metrics.</p>
+            </div>
+            <div class="p-3.5 bg-cyber-dark/80 rounded-xl border border-cyber-border">
+              <span class="font-mono text-[11px] text-cyber-amber">Shodh Anveshan Proceedings (ISBN 978-81-985429-4-6) &bull; 2025</span>
+              <h5 class="text-white font-semibold mt-1">Comparative Analysis of Machine Learning &amp; Deep Learning Models for Forecasting PM2.5 Levels</h5>
+              <p class="text-slate-400 text-xs mt-1">Presented at Thakur Ramnarayan College of Arts &amp; Commerce research convention.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. VOLUNTEERING & BRM -->
+      <section id="content-volunteering" class="tab-content hidden space-y-6">
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-cyber-border">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-6">
+            <div>
+              <span class="text-xs font-mono text-cyber-cyan uppercase tracking-wider">Social Impact &amp; Community Architecture</span>
+              <h3 class="text-xl sm:text-2xl font-bold text-white">Learning &amp; Development and Tech Lead</h3>
+              <p class="text-slate-300 font-medium">The Blue Ribbon Movement (BRM) Trust</p>
+            </div>
+            <a href="https://www.brmworld.org/innovators" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-cyber-dark hover:bg-cyber-panel border border-cyber-border text-xs font-mono text-cyber-cyan flex items-center gap-2 transition-all">
+              <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+              <span>BRM Innovators</span>
+            </a>
+          </div>
+
+          <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
+            <div class="p-4 rounded-xl bg-cyber-dark/80 border border-cyber-border">
+              <h4 class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyber-neon"></i> Leadership &amp; Capacity Development
+              </h4>
+              <p class="text-slate-400 text-xs">Direct leadership development initiatives for Programme Coordinators within the Community Connect vertical, architecting experiential learning frameworks and mentoring tracks to maximize volunteer efficacy and social outcome delivery.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-cyber-dark/80 border border-cyber-border">
+              <h4 class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyber-cyan"></i> Technology Bridge &amp; Product Assistant Tester
+              </h4>
+              <p class="text-slate-400 text-xs">
+                Acted as an assistant tester and technical bridge collaborating directly with Norwegian startup <strong><a href="https://shako.no/" target="_blank" rel="noopener noreferrer" class="text-cyber-cyan underline hover:text-white">Shako</a></strong>—translating organizational field workflows into digital product requirements, usability feedback, and acceptance testing for their volunteer event management app.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-cyber-dark/80 border border-cyber-border">
+              <h4 class="font-bold text-white text-sm mb-1 flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-cyber-purple"></i> Strategic Governance &amp; Cross-Functional Alignment
+              </h4>
+              <p class="text-slate-400 text-xs">Contribute to organizational governance as part of the core leadership committee, synchronizing volunteer units, executive mentors, and field leads toward unified programmatic objectives.</p>
+            </div>
+          </div>
+
+          <!-- Kejal Reference Box Only -->
+          <div class="mt-6 pt-6 border-t border-cyber-border/70">
+            <h4 class="text-xs font-mono text-slate-400 mb-3 uppercase tracking-wider">// Social Impact Endorsement</h4>
+            <div class="p-4 rounded-xl bg-cyber-dark border border-cyber-border max-w-md">
+              <div class="font-bold text-white text-sm">Kejal Savla</div>
+              <div class="text-cyber-cyan text-xs font-mono mb-2">CEO, The Blue Ribbon Movement Trust</div>
+              <a href="mailto:kejal@brmworld.org" class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-300 hover:text-white bg-cyber-panel px-3 py-1.5 rounded-lg border border-cyber-border">
+                <i data-lucide="mail" class="w-3.5 h-3.5 text-cyber-cyan"></i>
+                <span>kejal@brmworld.org</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. CREDENTIALS & REFERENCES -->
+      <section id="content-credentials" class="tab-content hidden space-y-6">
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-cyber-border">
+          <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <i data-lucide="graduation-cap" class="w-5 h-5 text-cyber-cyan"></i> Academic Qualifications
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-cyber-dark border border-cyber-border">
+              <div class="flex justify-between items-start">
+                <span class="px-2 py-0.5 rounded bg-cyber-cyan/10 text-cyber-cyan font-mono text-[10px] border border-cyber-cyan/30">GOLD MEDALIST</span>
+                <span class="text-xs font-mono text-slate-400">2021 – 2022</span>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-2">M.Sc. in Forensic Science</h4>
+              <p class="text-xs text-cyber-neon font-mono">Specialized in Digital &amp; Cyber Forensics</p>
+              <p class="text-xs text-slate-400 mt-1">Government Institute of Forensic Science, Fort, Mumbai</p>
+            </div>
+            <div class="p-4 rounded-xl bg-cyber-dark border border-cyber-border">
+              <div class="flex justify-between items-start">
+                <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[10px] border border-cyber-border">CGPA 8.65</span>
+                <span class="text-xs font-mono text-slate-400">2017 – 2020</span>
+              </div>
+              <h4 class="font-bold text-white text-sm mt-2">B.Sc. in Forensic Science</h4>
+              <p class="text-xs text-slate-400 font-mono">Comprehensive Forensics &amp; Criminology</p>
+              <p class="text-xs text-slate-400 mt-1">Government Institute of Forensic Science, Fort, Mumbai</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Accreditations -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-cyber-border">
+          <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <i data-lucide="shield-check" class="w-5 h-5 text-cyber-neon"></i> Accreditations &amp; FDPs
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+            <div class="p-3 bg-cyber-dark rounded-xl border border-cyber-border flex items-center justify-between">
+              <span class="text-white">UGC NET Qualified (Assistant Professor)</span>
+              <span class="text-cyber-cyan">2025</span>
+            </div>
+            <div class="p-3 bg-cyber-dark rounded-xl border border-cyber-border flex items-center justify-between">
+              <span class="text-white">Certified Ethical Hacker (CEH) - EC-Council</span>
+              <span class="text-cyber-neon">Active</span>
+            </div>
+            <div class="p-3 bg-cyber-dark rounded-xl border border-cyber-border flex items-center justify-between">
+              <span class="text-white">MSFDA &amp; riidl 8-Day Incubation Training FDP</span>
+              <span class="text-slate-400">2026</span>
+            </div>
+            <div class="p-3 bg-cyber-dark rounded-xl border border-cyber-border flex items-center justify-between">
+              <span class="text-white">Foundations of Cybersecurity (Google)</span>
+              <span class="text-slate-400">2026</span>
+            </div>
+            <div class="p-3 bg-cyber-dark rounded-xl border border-cyber-border flex items-center justify-between">
+              <span class="text-white">International FDP on Generative AI</span>
+              <span class="text-slate-400">2024</span>
+            </div>
+            <div class="p-3 bg-cyber-dark rounded-xl border border-cyber-border flex items-center justify-between">
+              <span class="text-white">Autopsy Cyber Triage DFIR Training</span>
+              <span class="text-slate-400">2020</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic Institutional References -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-cyber-border">
+          <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+            <i data-lucide="users" class="w-5 h-5 text-cyber-purple"></i> Academic Leadership References
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-cyber-dark border border-cyber-border">
+              <div class="font-bold text-white text-sm">Prof. Vinita Pimpale</div>
+              <div class="text-cyber-cyan text-xs font-mono">Principal</div>
+              <div class="text-slate-400 text-xs mt-1">R. A. Podar College of Commerce and Economics (Autonomous)</div>
+              <div class="mt-3">
+                <a href="mailto:principal@rapodar.ac.in" class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-300 hover:text-white bg-cyber-panel px-3 py-1.5 rounded-lg border border-cyber-border">
+                  <i data-lucide="mail" class="w-3.5 h-3.5 text-cyber-cyan"></i>
+                  <span>principal@rapodar.ac.in</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-cyber-dark border border-cyber-border">
+              <div class="font-bold text-white text-sm">Dr. Pradhnya Wankhade</div>
+              <div class="text-cyber-neon text-xs font-mono">Programme Coordinator - B.Sc. Data Science &amp; Analytics</div>
+              <div class="text-slate-400 text-xs mt-1">R. A. Podar College of Commerce and Economics (Autonomous)</div>
+              <div class="mt-3">
+                <a href="mailto:pradhnya.wankhada@rapodar.ac.in" class="inline-flex items-center gap-1.5 text-xs font-mono text-slate-300 hover:text-white bg-cyber-panel px-3 py-1.5 rounded-lg border border-cyber-border">
+                  <i data-lucide="mail" class="w-3.5 h-3.5 text-cyber-neon"></i>
+                  <span>pradhnya.wankhada@rapodar.ac.in</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. TESTIMONIALS / FEEDBACK GALLERY -->
+      <section id="content-testimonials" class="tab-content hidden space-y-6">
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-cyber-border relative">
+          
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-4 border-b border-cyber-border/80">
+            <div>
+              <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="message-square-quote" class="w-6 h-6 text-cyber-cyan"></i> Student Evaluations &amp; Feedback
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-400">Verbatim student responses and candid feedback collected across academic batches.</p>
+            </div>
+            
+            <!-- Quick Filter Pill Counters -->
+            <div class="flex items-center space-x-2 font-mono text-xs">
+              <span id="testimonial-counter" class="px-3 py-1 rounded-full bg-cyber-dark border border-cyber-border text-cyber-cyan">1 / 56</span>
+              <span id="rotation-status" class="px-2 py-0.5 rounded text-[10px] bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30">Auto</span>
+            </div>
+          </div>
+
+          <!-- Testimonial Showcase Box -->
+          <div class="min-h-[220px] sm:min-h-[190px] flex flex-col justify-between p-6 rounded-xl bg-cyber-dark/80 border border-cyber-border/90 relative transition-all duration-300" id="testimonial-box">
+            
+            <div class="mb-4">
+              <div class="flex items-center space-x-2 text-cyber-cyan mb-3">
+                <i data-lucide="quote" class="w-6 h-6 opacity-60"></i>
+                <span id="t-type" class="text-[10px] font-mono px-2 py-0.5 rounded uppercase tracking-wider bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan">Student Experience</span>
+              </div>
+              <p id="t-quote" class="text-slate-200 text-sm sm:text-base leading-relaxed italic">
+                "Loading feedback response..."
+              </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 pt-4 border-t border-cyber-border/50 text-xs font-mono">
+              <div>
+                <span id="t-author" class="font-bold text-white text-sm">Author Name</span>
+                <span id="t-subject" class="text-slate-400 ml-2">&bull; Subject</span>
+              </div>
+              <div class="flex items-center space-x-2 text-slate-400">
+                <span id="t-college" class="text-cyber-neon">College</span>
+                <span>&bull;</span>
+                <span id="t-batch" class="text-slate-300">Batch</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Controls Bar -->
+          <div class="flex items-center justify-between mt-6 pt-4 border-t border-cyber-border/50">
+            <div class="flex items-center space-x-2">
+              <button onclick="prevTestimonial()" class="px-4 py-2 rounded-xl bg-cyber-dark hover:bg-cyber-panel border border-cyber-border text-slate-200 text-xs font-mono flex items-center gap-1.5 transition-all">
+                <i data-lucide="chevron-left" class="w-4 h-4"></i> Prev
+              </button>
+              <button onclick="nextTestimonial()" class="px-4 py-2 rounded-xl bg-cyber-dark hover:bg-cyber-panel border border-cyber-border text-slate-200 text-xs font-mono flex items-center gap-1.5 transition-all">
+                Next <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </button>
+              <button onclick="toggleAutoPlay()" id="btn-pause" class="px-3 py-2 rounded-xl bg-cyber-dark hover:bg-cyber-panel border border-cyber-border text-slate-400 hover:text-white text-xs font-mono transition-all flex items-center justify-center">
+                <span id="pause-icon-container"><i data-lucide="pause" class="w-4 h-4"></i></span>
+              </button>
+            </div>
+
+            <!-- Direct Mail button at end -->
+            <a href="mailto:shantanugadade12@gmail.com" class="px-4 py-2 rounded-xl bg-gradient-to-r from-cyber-cyan to-teal-400 text-black font-semibold text-xs font-mono uppercase tracking-wider flex items-center gap-2">
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+              <span>Connect Over Mail</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-12 pt-6 border-t border-cyber-border/60 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-slate-400">
+      <div>
+        &copy; 2026 Shantanu Gadade &bull; Somaiya School of Basic and Applied Sciences
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="mailto:shantanugadade12@gmail.com" class="text-cyber-cyan hover:underline">shantanugadade12@gmail.com</a>
+        <span>&bull;</span>
+        <a href="https://github.com/OpenShantanu" target="_blank" rel="noopener noreferrer" class="hover:text-white">github.com/OpenShantanu</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // 1. Data Store for Testimonials (Shuffled: All Student Highlights first, followed by Constructive Feedback)
+    const testimonialsData = [
+      // === STUDENT HIGHLIGHTS & POSITIVE RESPONSES (FIRST) ===
+      {
+        name: "Anonymous",
+        batch: "AY 2025-26",
+        institute: "R. A. Podar College",
+        subject: "SYBSc(DSA) • AI & RPA",
+        response: "The most memorable experience was not of AI but of RPA in which we performed RPA to fill up the Google form all by itself. Possibly the most educational thing that has ever happened in this college.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Bhoomi Jain",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "SYBSc(DSA) • AI & RPA",
+        response: "The practical application on types of search algorithms in AI through games .Also learning the UiPath Studio was a really good tool to learn under RPA",
+        type: "Student Highlight"
+      },
+      {
+        name: "Aalok Chavan",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "SYBSc • Programming",
+        response: "No suggestions from my side, as Shantanu Sir was great at teaching and he helped me to develop my love for programming.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2025-26",
+        institute: "R. A. Podar College",
+        subject: "SYBSc(DSA) • AI",
+        response: "It was bot just being taught using the ppt it was taught to us by giving real life examples",
+        type: "Student Highlight"
+      },
+      {
+        name: "Kashish Gade",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "SYBSc • AI",
+        response: "After the syllabus was over , we all were engaged watching a Ted talk regarding Artificial intelligence",
+        type: "Student Highlight"
+      },
+      {
+        name: "Rishie Nagda",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "FYBAS • IRP",
+        response: "The basic detailing into each concept of the subject which matters the most",
+        type: "Student Highlight"
+      },
+      {
+        name: "Khushi Singh",
+        batch: "AY 2024-25",
+        institute: "Somaiya Vidyavihar University",
+        subject: "FYMSc IT • Network Security",
+        response: "Interaction with the students and a crystal clear explanation of all the topics",
+        type: "Student Highlight"
+      },
+      {
+        name: "Suraj Shetty",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Undergraduate IT",
+        response: "Sir please come back next year for another semester. Last semester was a great experience for all of us.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2024-25",
+        institute: "Somaiya Vidyavihar University",
+        subject: "FYMSc IT • Network Security",
+        response: "Silence at the beginning and end of lecture",
+        type: "Student Highlight"
+      },
+      {
+        name: "Aaryaman Rao",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "B.Sc. Data Science",
+        response: "I'd say that whatever you've been doing thus far is actually perfect.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Kashaf Khanbande",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Undergraduate IT",
+        response: "The best already, come back again",
+        type: "Student Highlight"
+      },
+      {
+        name: "Raahul Muthukrishnan",
+        batch: "AY 2023-24",
+        institute: "R. A. Podar College",
+        subject: "SYBSc • Python & DSA",
+        response: "Programming immediately after an explanation",
+        type: "Student Highlight"
+      },
+      {
+        name: "Athira",
+        batch: "AY 2023-24",
+        institute: "R. A. Podar College",
+        subject: "SYBSc • AI & Search Algorithms",
+        response: "Understanding and coding CSP's",
+        type: "Student Highlight"
+      },
+      {
+        name: "Harsh",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Undergraduate IT",
+        response: "Very good teacher n person",
+        type: "Student Highlight"
+      },
+      {
+        name: "Soni Sahu",
+        batch: "AY 2025-26",
+        institute: "R. A. Podar College",
+        subject: "B.Sc. Data Science",
+        response: "No, we want him again for upcoming semester.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Nidhi Matkar",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Data Science & AI",
+        response: "It would be nice to explore more project ideas that would be applicable, build application together with teacher's guidance and go to hackathons and other tech event with the class and the teacher",
+        type: "Student Highlight"
+      },
+      {
+        name: "Priyank Iyer",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Information Technology",
+        response: "No.It was a great experience studying under him.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Parshvi Kapasi",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Data Science",
+        response: "Enjoyed every class",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2024-25",
+        institute: "Royal College",
+        subject: "Ethical Hacking Labs",
+        response: "The live exploit demonstrations and practical approach in Kali Linux helped us understand how offensive and defensive security really work.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2024-25",
+        institute: "Royal College",
+        subject: "Ethical Hacking",
+        response: "Very clear instructions during lab sessions and extremely supportive attitude towards beginner questions.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Amey Ahuja",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Data Science & Signal Processing",
+        response: "I dont know about improvement but i enjoyed studying DSP which is somewhat rare",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2023-24",
+        institute: "R. A. Podar College",
+        subject: "SYBSc • IT Act & Cyber Law",
+        response: "The sessions were very interactive .the one thing I like the most was ,students were called in front to explain their topic so that increased my stage daring.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2023-24",
+        institute: "R. A. Podar College",
+        subject: "Excel & Data Operations",
+        response: "Sir is very honest and helpful",
+        type: "Student Highlight"
+      },
+      {
+        name: "BHARTI PATEL",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Data Science",
+        response: "Nothing just keep going the same",
+        type: "Student Highlight"
+      },
+      {
+        name: "Aditya Mungekar",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Information Technology",
+        response: "NA the experience was amazing learned a lot",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2024-25",
+        institute: "Somaiya Vidyavihar University",
+        subject: "M.Sc. IT",
+        response: "Hands-on clarity in network defense and database internals. One of the most engaging courses this academic term.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "TYBAS • Cyber Security",
+        response: "The approachability of the teacher",
+        type: "Student Highlight"
+      },
+      {
+        name: "Harsh Sawant",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Computer Applications",
+        response: "Everything is good",
+        type: "Student Highlight"
+      },
+      {
+        name: "Dhruvin Amrute",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Data Science",
+        response: "Interactive sessions between two modules or concepts taught in the same lecture.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Payal Patra",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Data Science & Projects",
+        response: "Add more subjects like this makes us gain more knowledge about project building",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2024-25",
+        institute: "Somaiya Vidyavihar University",
+        subject: "Network Security",
+        response: "Explaining real vulnerability reports and Wireshark capture analysis made the theoretical syllabus come alive.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2025-26",
+        institute: "R. A. Podar College",
+        subject: "B.Sc. Data Science",
+        response: "Encouraged us to ask questions freely without hesitation. That opened up a whole new perspective towards computing.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Affan Shaikh",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Undergraduate IT",
+        response: "I don't have any suggestions.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2023-24",
+        institute: "R. A. Podar College",
+        subject: "Python Programming",
+        response: "Friendly interaction and doubt solving",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2024-25",
+        institute: "Royal College",
+        subject: "Ethical Hacking",
+        response: "The practical setup was great. Sir took time to troubleshoot lab environments for every student individually.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2024-25",
+        institute: "Somaiya Vidyavihar University",
+        subject: "Cyber Forensics",
+        response: "Detailed exposure to forensic evidence handling, integrity hashing, and file carving principles.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2025-26",
+        institute: "R. A. Podar College",
+        subject: "AI & Machine Learning",
+        response: "The case studies presented in class linked mathematics with actual production machine learning pipelines.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Data Structures",
+        response: "Helped develop the attitude of thinking through basic algorithms before jumping straight into code.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2023-24",
+        institute: "R. A. Podar College",
+        subject: "IT Foundation",
+        response: "Some good interactions and not all just studying",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "RPA & Automation",
+        response: "Automating routine tasks using UiPath opened my eyes to software engineering beyond simple terminal programs.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2024-25",
+        institute: "Somaiya Vidyavihar University",
+        subject: "M.Sc. IT",
+        response: "Exceptional command over network vulnerabilities and modern mitigation strategies.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2025-26",
+        institute: "R. A. Podar College",
+        subject: "B.Sc. Data Science to Analytics",
+        response: "Very approachable faculty who constantly pointed us toward relevant open source repositories and tools.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2024-25",
+        institute: "Royal College",
+        subject: "Ethical Hacking",
+        response: "Helped me understand port scanning, web proxies, and password security in depth.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Information Technology",
+        response: "The guidance given for project documentation and presentation skills was extremely valuable.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2023-24",
+        institute: "R. A. Podar College",
+        subject: "DSA Practical",
+        response: "Hands-on implementation of trees and graphs made the difficult theory syllabus manageable.",
+        type: "Student Highlight"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Data Science",
+        response: "Approachable mentoring during hackathon submissions that helped our team gain confidence.",
+        type: "Student Highlight"
+      },
+
+      // === FEEDBACK FOR IMPROVEMENT / SUGGESTIONS (TOWARDS THE END) ===
+      {
+        name: "Yash Dalvi",
+        batch: "AY 2025-26",
+        institute: "R. A. Podar College",
+        subject: "B.Sc. Data Science",
+        response: "Teach more practical knowledge rather than theory knowledge",
+        type: "Feedback for Improvement"
+      },
+      {
+        name: "Aditya Singh",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "TYBAS • Cyber Security",
+        response: "Increasing the real and practical examples will help a lot in understanding. Also inclusion of real world cyber attack and scams with details will help understand the topic more.",
+        type: "Feedback for Improvement"
+      },
+      {
+        name: "Vibhas Jadhav",
+        batch: "AY 2025-26",
+        institute: "R. A. Podar College",
+        subject: "SYBSc • AI & FRS",
+        response: "tone down the strictness for attendance. since everybody or atleast few of them are also doing other courses , beyond academics. flexibility here will be helpful",
+        type: "Feedback for Improvement"
+      },
+      {
+        name: "Pratyush Shetty",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "SYBSc(DSA) • AI",
+        response: "The lectures can be made more interactive by asking the students constant questions whether they are able to keep up or not because after a point of time students may start losing interest due to the technical terminologies involved",
+        type: "Feedback for Improvement"
+      },
+      {
+        name: "Sumit Kothari",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "B.Sc. Data Science",
+        response: "More hands on RST style would be better",
+        type: "Feedback for Improvement"
+      },
+      {
+        name: "Ritik Nirbhavane",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "SYBSc • AI",
+        response: "Add some more practical based lectures by which we can understand the concept more deeply .",
+        type: "Feedback for Improvement"
+      },
+      {
+        name: "Aniket Mishra",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "TYBAS • Cyber Security",
+        response: "It would be great to have a bit less theory and more hands-on sessions, as practical application really helps in understanding the concepts better.",
+        type: "Feedback for Improvement"
+      },
+      {
+        name: "Prasad Ghaisas",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "SYBSc • AI",
+        response: "Maybe going a little slower with concepts would be helpful, as my friends who didn't have a strong IT background found the pace to be slightly fast.",
+        type: "Feedback for Improvement"
+      },
+      {
+        name: "Deepika Shetty",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "Web Development",
+        response: "Overall, the faculty is very good in teaching theory and explains concepts clearly. However, I would like to suggest an improvement in the way practical topics, especially programming languages like HTML and CSS, are taught. During the sessions, both languages were mixed while explaining, which made it difficult for new learners to understand which part belongs to HTML and which to CSS. Since I was already familiar with these languages, I didn’t face any issues, but for beginners, it created confusion. Apart from this, he is a good faculty with strong teaching skills and a supportive nature",
+        type: "Feedback for Improvement"
+      },
+      {
+        name: "Vinayak Chavan",
+        batch: "AY 2024-25",
+        institute: "R. A. Podar College",
+        subject: "TYBAS • Cyber Security",
+        response: "Include more live demonstrations and interactive labs to enhance practical learning, and consider inviting industry professionals for guest lectures to give students broader exposure to real-world cybersecurity challenges.",
+        type: "Feedback for Improvement"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2023-24",
+        institute: "R. A. Podar College",
+        subject: "SYBSc • Python & DSA",
+        response: "Separate power point presentations according to module and not just notes",
+        type: "Feedback for Improvement"
+      },
+      {
+        name: "Anonymous",
+        batch: "AY 2023-24",
+        institute: "R. A. Podar College",
+        subject: "SYBSc • DSA",
+        response: "It will be better if you give us more of practical knowledge by giving us real life projects and problems to solve",
+        type: "Feedback for Improvement"
+      }
+    ];
+
+    let currentTIndex = 0;
+    let autoPlayInterval = null;
+    let isAutoPlaying = true;
+
+    function renderTestimonial(index) {
+      if (!testimonialsData || testimonialsData.length === 0) return;
+      const item = testimonialsData[index];
+      const box = document.getElementById('testimonial-box');
+      if (!box || !item) return;
+
+      box.classList.add('opacity-40');
+      setTimeout(() => {
+        const quoteEl = document.getElementById('t-quote');
+        const authorEl = document.getElementById('t-author');
+        const subjectEl = document.getElementById('t-subject');
+        const collegeEl = document.getElementById('t-college');
+        const batchEl = document.getElementById('t-batch');
+        const counterEl = document.getElementById('testimonial-counter');
+        const typeElem = document.getElementById('t-type');
+
+        if (quoteEl) quoteEl.textContent = `"${item.response}"`;
+        if (authorEl) authorEl.textContent = item.name;
+        if (subjectEl) subjectEl.textContent = `• ${item.subject}`;
+        if (collegeEl) collegeEl.textContent = item.institute;
+        if (batchEl) batchEl.textContent = item.batch;
+        
+        if (typeElem) {
+          typeElem.textContent = item.type;
+          if (item.type.includes('Improvement')) {
+            typeElem.className = 'text-[10px] font-mono px-2 py-0.5 rounded uppercase tracking-wider bg-cyber-amber/10 border border-cyber-amber/40 text-cyber-amber';
+          } else {
+            typeElem.className = 'text-[10px] font-mono px-2 py-0.5 rounded uppercase tracking-wider bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan';
+          }
+        }
+
+        if (counterEl) counterEl.textContent = `${index + 1} / ${testimonialsData.length}`;
+        box.classList.remove('opacity-40');
+      }, 120);
+    }
+
+    function nextTestimonial(manual = true) {
+      if (manual && isAutoPlaying) stopAutoPlay();
+      currentTIndex = (currentTIndex + 1) % testimonialsData.length;
+      renderTestimonial(currentTIndex);
+    }
+
+    function prevTestimonial() {
+      if (isAutoPlaying) stopAutoPlay();
+      currentTIndex = (currentTIndex - 1 + testimonialsData.length) % testimonialsData.length;
+      renderTestimonial(currentTIndex);
+    }
+
+    function updatePauseIcon(isPaused) {
+      const container = document.getElementById('pause-icon-container');
+      if (!container) return;
+      if (isPaused) {
+        container.innerHTML = '<i data-lucide="play" class="w-4 h-4"></i>';
+      } else {
+        container.innerHTML = '<i data-lucide="pause" class="w-4 h-4"></i>';
+      }
+      if (window.lucide && typeof lucide.createIcons === 'function') {
+        lucide.createIcons();
+      }
+    }
+
+    function startAutoPlay() {
+      if (autoPlayInterval) clearInterval(autoPlayInterval);
+      isAutoPlaying = true;
+      const statusEl = document.getElementById('rotation-status');
+      if (statusEl) {
+        statusEl.textContent = 'Auto';
+        statusEl.className = 'px-2 py-0.5 rounded text-[10px] bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30';
+      }
+      updatePauseIcon(false);
+      autoPlayInterval = setInterval(() => {
+        currentTIndex = (currentTIndex + 1) % testimonialsData.length;
+        renderTestimonial(currentTIndex);
+      }, 10000); // 10s rotation
+    }
+
+    function stopAutoPlay() {
+      isAutoPlaying = false;
+      if (autoPlayInterval) clearInterval(autoPlayInterval);
+      const statusEl = document.getElementById('rotation-status');
+      if (statusEl) {
+        statusEl.textContent = 'Manual';
+        statusEl.className = 'px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-400 border border-slate-700';
+      }
+      updatePauseIcon(true);
+    }
+
+    function toggleAutoPlay() {
+      if (isAutoPlaying) {
+        stopAutoPlay();
+      } else {
+        startAutoPlay();
+      }
+    }
+
+    // 2. Tab Navigation
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('border-cyber-cyan', 'bg-cyber-cyan/10', 'text-cyber-cyan');
+        btn.classList.add('border-cyber-border', 'bg-cyber-panel/50', 'text-slate-400');
+      });
+
+      const target = document.getElementById(`content-${tabId}`);
+      const targetBtn = document.getElementById(`tab-btn-${tabId}`);
+      if (target) target.classList.remove('hidden');
+      if (targetBtn) {
+        targetBtn.classList.remove('border-cyber-border', 'bg-cyber-panel/50', 'text-slate-400');
+        targetBtn.classList.add('border-cyber-cyan', 'bg-cyber-cyan/10', 'text-cyber-cyan');
+      }
+
+      if (tabId === 'testimonials') {
+        renderTestimonial(currentTIndex);
+      }
+    }
+
+    // 3. Sub-tabs inside Skills Matrix
+    function showSkillSubTab(subId) {
+      document.querySelectorAll('.skill-sub-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.skill-sub-btn').forEach(btn => {
+        btn.classList.remove('border-cyber-cyan', 'bg-cyber-cyan/10', 'text-cyber-cyan');
+        btn.classList.add('border-cyber-border', 'bg-cyber-dark', 'text-slate-400');
+      });
+
+      const content = document.getElementById(subId);
+      const btn = document.getElementById(`btn-${subId}`);
+      if (content) content.classList.remove('hidden');
+      if (btn) {
+        btn.classList.remove('border-cyber-border', 'bg-cyber-dark', 'text-slate-400');
+        btn.classList.add('border-cyber-cyan', 'bg-cyber-cyan/10', 'text-cyber-cyan');
+      }
+    }
+
+    // 4. Robust Typewriter Effect (Self-Healing Loop)
+    const roles = [
+      "Postgraduate in Cyber Forensics and IT Security",
+      "Certified Ethical Hacker",
+      "UGC NET Qualified",
+      "Assistant Professor",
+      "AI Solution Builder",
+      "Security and Emerging Technologies Researcher"
+    ];
+
+    let roleIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+
+    function runTypewriter() {
+      const typewriterElem = document.getElementById("typewriter-text");
+      if (!typewriterElem) {
+        setTimeout(runTypewriter, 100);
+        return;
+      }
+
+      const currentRole = roles[roleIdx];
+      if (isDeleting) {
+        typewriterElem.textContent = currentRole.substring(0, charIdx - 1);
+        charIdx--;
+      } else {
+        typewriterElem.textContent = currentRole.substring(0, charIdx + 1);
+        charIdx++;
+      }
+
+      let speed = isDeleting ? 30 : 65;
+      if (!isDeleting && charIdx === currentRole.length) {
+        speed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        roleIdx = (roleIdx + 1) % roles.length;
+        speed = 450;
+      }
+      setTimeout(runTypewriter, speed);
+    }
+
+    // 5. 3D Particle Constellation Background Canvas
+    (function initBackgroundCanvas() {
+      const canvas = document.getElementById('bg-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let mouse = { x: null, y: null };
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      window.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 0.45;
+          this.vy = (Math.random() - 0.5) * 0.45;
+          this.radius = Math.random() * 1.5 + 0.5;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 240, 255, 0.4)';
+          ctx.fill();
+        }
+      }
+
+      const count = Math.min(window.innerWidth > 768 ? 60 : 30, 80);
+      particles = [];
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 100) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(0, 240, 255, ${0.15 * (1 - dist / 100)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+
+    // DOM Ready Initialization
+    function onInit() {
+      if (window.lucide && typeof lucide.createIcons === 'function') {
+        lucide.createIcons();
+      }
+      runTypewriter();
+      renderTestimonial(0);
+      startAutoPlay();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', onInit);
+    } else {
+      onInit();
+    }
+  </script>
+</body>
+</html>
